@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_application/page/home.dart';
+import 'package:flutter_application/page/search_page.dart';
 import 'package:flutter_application/page/todo_list.dart';
 
 // 应用入口
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
         // 设置整体的颜色方案，ColorScheme.fromSeed相当设置主色调
         // 区别：colorScheme可控制的颜色比primarySwatch多
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xCCE8CF)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00CCE8CF)),
       ),
 
       // 应用首页路由
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -55,8 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     const NavigationRailDestination(
       icon: Icon(Icons.format_list_bulleted_outlined),
-      selectedIcon: Icon(Icons.format_list_bulleted),
       label: Text('Todo-List'),
+    ),
+    const NavigationRailDestination(
+      icon: Icon(Icons.search),
+      label: Text('Search'),
     ),
   ];
 
@@ -97,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   HomePage(),
                   TodoList(),
+                  SearchPage(),
                 ],
               ),
             )
